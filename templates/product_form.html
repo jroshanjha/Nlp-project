@@ -1,0 +1,117 @@
+<!-- templates/product_form.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<div class="row">
+    <div class="col-md-8 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" id="product-form">
+                    {{ form.csrf_token }}
+                    
+                    <div class="mb-3">
+                        {{ form.name.label(class="form-label") }}
+                        {{ form.name(class="form-control", placeholder="Enter product name") }}
+                        {% if form.name.errors %}
+                            {% for error in form.name.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form.description.label(class="form-label") }}
+                        {{ form.description(class="form-control", rows=4, placeholder="Enter product description") }}
+                        {% if form.description.errors %}
+                            {% for error in form.description.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            {{ form.price.label(class="form-label") }}
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                {{ form.price(class="form-control", placeholder="0.00") }}
+                            </div>
+                            {% if form.price.errors %}
+                                {% for error in form.price.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            {{ form.quantity.label(class="form-label") }}
+                            {{ form.quantity(class="form-control", placeholder="0") }}
+                            {% if form.quantity.errors %}
+                                {% for error in form.quantity.errors %}
+                                    <div class="text-danger">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> Back to List
+                        </a>
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    // Client-side validation
+    $('#product-form').on('submit', function(e) {
+        let valid = true;
+        
+        // Validate name
+        if (!$('#name').val()) {
+            $('#name').addClass('is-invalid');
+            valid = false;
+        } else {
+            $('#name').removeClass('is-invalid');
+        }
+        
+        // Validate price
+        if (!$('#price').val() || isNaN($('#price').val()) || parseFloat($('#price').val()) <= 0) {
+            $('#price').addClass('is-invalid');
+            valid = false;
+        } else {
+            $('#price').removeClass('is-invalid');
+        }
+        
+        // Validate quantity
+        if (!$('#quantity').val() || isNaN($('#quantity').val()) || parseInt($('#quantity').val()) < 0) {
+            $('#quantity').addClass('is-invalid');
+            valid = false;
+        } else {
+            $('#quantity').removeClass('is-invalid');
+        }
+        
+        return valid;
+    });
+    
+    // Format price as two decimal places on blur
+    $('#price').on('blur', function() {
+        const value = $(this).val();
+        if (value && !isNaN(value)) {
+            $(this).val(parseFloat(value).toFixed(2));
+        }
+    });
+});
+</script>
+{% endblock %}

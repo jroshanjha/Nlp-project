@@ -1,0 +1,34 @@
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment variables and virtual environments
+.env
+*.env
+venv/
+env/
+
+# Ignore MySQL credentials
+*.db
+*.sql
+mysql.cnf
+
+# Ignore logs
+*.log
+logs/
+app.log
+
+# Ignore compiled Python files
+*.egg-info/
+dist/
+build/
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

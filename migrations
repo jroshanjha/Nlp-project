@@ -1,0 +1,28 @@
+CREATE DATABASE product_db;
+CREATE USER 'product_user'@'localhost' IDENTIFIED BY 'jroshan@98';
+GRANT ALL PRIVILEGES ON product_db.* TO 'product_user'@'localhost';
+FLUSH PRIVILEGES;
+
+-- flask db init
+-- flask db migrate -m "Initial migration"
+-- flask db upgrade
+
+-- Create database 
+create database if not exists product_db
+
+use product_db
+
+-- Create table
+create table if not exists product_db.products(
+p_id varchar(256) primary key ,
+name varchar(50) not null unique,
+price varchar(256) not null,
+quantity varchar(50) not null,
+create_at datetime ,
+update_at datetime
+)
+
+create table if not exists stack_table (s_id int primary key,value varchar(100));
+
+create table if not exists queue_table (q_id int primary key,value varchar(100));
+
