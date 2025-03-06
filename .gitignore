@@ -10,6 +10,7 @@ __pycache__/
 *.env
 venv/
 env/
+new_venv/
 
 # Ignore MySQL credentials
 *.db
@@ -20,7 +21,6 @@ mysql.cnf
 *.log
 logs/
 app.log
-
 # Ignore compiled Python files
 *.egg-info/
 dist/
