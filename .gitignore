@@ -11,6 +11,9 @@ __pycache__/
 venv/
 env/
 new_venv/
+machine-translation/new_venv/
+sentiment-analysis/new_venv/
+
 
 # Ignore MySQL credentials
 *.db

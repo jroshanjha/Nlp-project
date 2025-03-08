@@ -21,6 +21,9 @@ WORKDIR /app
 RUN pip install --upgrade pip  # Ensure latest pip
 RUN pip install -r requirements.txt
 
+# Download spaCy language model
+RUN python -m spacy download en_core_web_sm
+
 # Run the application
 CMD ["python", "-u", "app.py"]
 

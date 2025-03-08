@@ -67,18 +67,18 @@ docker psc
 ## push docker image into docker container
 docker login ( jroshan123)
 
-docker image rm -f welcome-app 
+docker image rm -f topic-modeling 
 
 # rename 
-docker tag jroshan123/welcome-app jroshan123/welcome-app1 
+docker tag jroshan123/welcome-app jroshan123/topic-modeling
 
 # push 
 docker push jroshan123/welcome-app1
-docker push jroshan123/welcome-app:lates
+docker push jroshan123/topic-modeling:lates
 
-docker pull jroshan123/welcome-app1:latest
+docker pull jroshan123/topic-modeling:latest
 
-docker run -d -p 8080:8080 jroshan123/welcome-app1:latest
+docker run -d -p 8080:8080 jroshan123/topic-modeling:latest
 
 
 
@@ -115,6 +115,33 @@ API Endpoints
 
 
 uvicorn app:app --reload
+
+🔥 Verify Installation Inside Docker
+Run the container interactively:
+docker run -it your-container-name bash
+
+Check installed models
+python -m spacy validate
+
+
+# Machine Translation 
+🚀 Features of the Application
+✅ Translate text between multiple languages
+✅ Use a pre-trained Transformer model (MarianMT)
+✅ Deploy as an API with FastAPI
+✅ Interactive UI (optional: Streamlit for web interface)
+
+Next Steps
+🔥 Extend to More Languages → Add support for Hindi, Chinese, Japanese, Arabic, etc.
+📊 Add a Web UI → Use Streamlit to make an interactive front-end.
+🚀 Deploy on Cloud → Containerize with Docker and host on AWS/GCP.
+🚀
+
+🚀 Features of the Application
+✅ Classify text sentiment as Positive, Negative, or Neutral
+✅ Use a pre-trained Transformer model (DistilBERT for Sentiment Analysis)
+✅ Deploy as an API with FastAPI
+✅ Optional UI for real-time sentiment analysis (Streamlit)
 
 
 
