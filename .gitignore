@@ -13,6 +13,8 @@ env/
 new_venv/
 machine-translation/new_venv/
 sentiment-analysis/new_venv/
+dialog-system/new_venv/
+dialog-system/*.pdf
 
 
 # Ignore MySQL credentials

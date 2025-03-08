@@ -9,7 +9,7 @@ python -m venv new_venv
 conda activate venv/
 new_venv\Scripts\activate
 
-# installment Requirements Library
+# Installment Requirements Library
 pip install -r requirements.txt
 
 # Procfile
@@ -144,4 +144,37 @@ Next Steps
 ✅ Optional UI for real-time sentiment analysis (Streamlit)
 
 
+# Dialog Systems:- 
+🚀 Features of the Application
+✅ Interactive chatbot for collecting resume details
+✅ Natural language understanding using Dialogflow or Rasa (optional: GPT-3.5)
+✅ Generates a structured resume in PDF or JSON format
+✅ FastAPI for API deployment
 
+https://wkhtmltopdf.org/downloads.html
+wkhtmltopdf --version
+
+"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe" --version
+
+✅ Collects user details (name, skills, experience, etc.)
+✅ Formats data into a structured resume using Jinja2 templates
+✅ Generates a PDF file using pdfkit
+✅ API endpoint (/generate_resume) processes user input
+
+uvicorn resume_builder:app --reload
+
+curl -X 'POST' 'http://127.0.0.1:8000/generate_resume' \
+     -H 'Content-Type: application/json' \
+     -d '{
+           "name": "John Doe",
+           "email": "john.doe@example.com",
+           "phone": "123-456-7890",
+           "skills": ["Python", "FastAPI", "Machine Learning"],
+           "experience": ["Software Engineer at ABC Corp", "Intern at XYZ Ltd."],
+           "education": ["B.Tech in Computer Science"],
+           "summary": "Experienced software engineer specializing in backend development and AI."
+         }'
+
+🔥 Integrate a Chatbot (Rasa, GPT-3.5, or Dialogflow) for user interaction
+📊 Add a Web UI using Streamlit for an interactive form
+🚀 Deploy on Cloud → Containerize with Docker and host on AWS/GCP
