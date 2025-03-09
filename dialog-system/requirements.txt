@@ -4,5 +4,4 @@ pydantic
 transformers 
 pdfkit 
 jinja2
-
 pdfkit

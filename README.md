@@ -180,3 +180,11 @@ curl -X 'POST' 'http://127.0.0.1:8000/generate_resume' \
 🚀 Deploy on Cloud → Containerize with Docker and host on AWS/GCP
 
 
+# Speech To Text 
+🚀 Features of the Application
+✅ Converts speech to text using OpenAI's Whisper model
+✅ Supports multiple languages
+✅ FastAPI for API deployment
+✅ Accepts audio files (.wav, .mp3, .ogg, etc.)
+✅ Optional: Streamlit UI for easy interaction
+

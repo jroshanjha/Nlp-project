@@ -1,0 +1,11 @@
+fastapi 
+uvicorn 
+pydantic 
+openai-whisper 
+ffmpeg
+python-multipart
+gtts
+ultralytics 
+opencv-python 
+numpy 
+pillow
