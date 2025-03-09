@@ -178,3 +178,5 @@ curl -X 'POST' 'http://127.0.0.1:8000/generate_resume' \
 🔥 Integrate a Chatbot (Rasa, GPT-3.5, or Dialogflow) for user interaction
 📊 Add a Web UI using Streamlit for an interactive form
 🚀 Deploy on Cloud → Containerize with Docker and host on AWS/GCP
+
+
